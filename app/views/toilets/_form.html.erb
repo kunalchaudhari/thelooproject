@@ -2,7 +2,19 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :lat%>
+
+    <fieldset id="location_section" style="padding: 20px; border: solid 1px #ccc;">
+      <input type="text" id="location_input" />
+      Latitude:   <input name="lat" type="text" value="">
+      Longitude:  <input name="lng" type="text" value="">
+      Address:    <input name="formatted_address" type="text" value="">
+    </fieldset>
+
+    <br />
+    <br />
+    <br />
+    
+    <%= f.input :lat %>
     <%= f.input :lng %>
     <%= f.input :name %>
     <%= f.input :description %>

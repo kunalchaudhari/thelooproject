@@ -1,33 +1,113 @@
-<%= simple_form_for(@loo) do |f| %>
-  <%= f.error_notification %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-7 center-block" style="float: none;">
 
-  <div id="location_section" class="form-inputs">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <strong style="font-size: 20px;">Add Loo</strong>
+        </div>
+        
+        <div class="panel-body">
 
-    <fieldset style="padding: 20px; border: solid 1px #ccc;">
-      <input type="text" id="location_input" />
-    </fieldset>
+          <%= simple_form_for(@loo, defaults: { label: false }) do |f| %>
+            <%= f.error_notification %>
 
-    <br />
-    <br />
-    <br />
-    
-    <%= f.input :lat, input_html: { data: { geo: 'lat' } } %>
-    <%= f.input :lng, input_html: { data: { geo: 'lng' } } %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :open_hours %>
-    <%= f.input :closing_hours %>
-    <%= f.input :open_closing_note %>
-    <%= f.input :managed_by %>
-    <%= f.input :type %>
-    <%= f.input :genders %>
-    <%= f.input :no_of_toilets %>
-    <%= f.input :no_of_bathrooms %>
-    <%= f.input :no_of_urinals %>
-    <%= f.input :paid %>
+            <div id="location_section" class="form-inputs">
+
+              <div class="row">
+                <div class="col-xs-10">
+                  <label>Enter location/area of Loo:</label>
+                  <%= f.input :name, placeholder: "Enter new location", input_html: { id: 'location_input' } %>
+                  <span id="helpBlock" class="help-block">eg. Navrangpura, Ahmedabad, India.</span>
+                </div>
+              </div>
+
+              <br />
+
+              <div style="display: none">
+                <%= f.input :lat, input_html: { data: { geo: 'lat' } } %>
+                <%= f.input :lng, input_html: { data: { geo: 'lng' } } %>
+              </div>
+
+              <h4>Details:</h4>
+
+              <div class="row">
+                <div class="col-xs-8">
+                  <%= f.input :name, placeholder: "Name: eg. Toilet at Central mall" %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-10">
+                  <%= f.input :description, placeholder: "Description", input_html: { rows: 5 } %>
+                </div>
+              </div>
+
+              <br />
+
+              <h4>Open/Close status</h4>
+
+              <div class="row">
+                <div class="col-xs-4">
+                  <%= f.input :open_hours, placeholder: "Open hour: eg. 6:00 AM" %>
+                </div>
+                <div class="col-xs-4">
+                  <%= f.input :closing_hours, placeholder: "Closing hour: eg. 9:00 PM"  %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-8">
+                  <%= f.input :open_closing_note, placeholder: "Open/Closing note: eg. Closed on saturday and sunday" %>
+                </div>
+              </div>
+              
+              
+
+              <br />
+              <h4>Other details: </h4>
+              
+              <div class="row">
+                <div class="col-xs-10">
+                  <%= f.input :managed_by, placeholder: "Managed by: eg. NASA Foundation" %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-4">
+                  <%= f.input :loo_type, as: :select, collection: %w(western indian both), prompt: "Loo type" %>
+                </div>
+                <div class="col-xs-4">
+                  <%= f.input :genders, as: :select, collection: [["Gents", "gents"], ["Ladies", "ladies"], ["All", "all"]], prompt: "Select Gender Type" %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4">
+                  <%= f.input :no_of_toilets, placeholder: "No. of toilets" %>
+                </div>
+                <div class="col-xs-4">
+                  <%= f.input :no_of_bathrooms, placeholder: "No. of bathrooms" %>
+                </div>
+                <div class="col-xs-4">
+                  <%= f.input :no_of_urinals, placeholder: "No. of urinals" %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-3">
+                  <%= f.input :paid, label: "Paid", as: :select, collection: ['No', 'Yes'], include_blank: false %>
+                </div>
+              </div>
+            </div>
+
+            <br />
+            <div class="form-actions">
+              <%= f.button :submit, class: "btn btn-success" %>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+</div>

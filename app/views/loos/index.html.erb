@@ -1,10 +1,11 @@
-
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <p id="notice"><%= notice %></p>
+      <p id="notice"><%= notice %></p>      
 
-      <h1>Listing Loos</h1>
+      <% unless @loos.empty? %>
+
+      <h1>Listing Loos(<%= @loos.size %>)</h1>
       <table class="table table-bordered table-striped table-condensed">
         <thead>
           <tr>
@@ -37,7 +38,7 @@
               <td><%= loo.closing_hours %></td>
               <td><%= loo.open_closing_note %></td>
               <td><%= loo.managed_by %></td>
-              <td><%= loo.type %></td>
+              <td><%= loo.loo_type %></td>
               <td><%= loo.genders %></td>
               <td><%= loo.no_of_toilets %></td>
               <td><%= loo.no_of_bathrooms %></td>
@@ -51,9 +52,13 @@
         </tbody>
       </table>
 
-      <br>
-
-      <%= link_to 'New Loo', new_loo_path %>
+      <% else %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          No loos found.
+        </div>
+      </div>
+      <% end %>
       
     </div>
   </div>

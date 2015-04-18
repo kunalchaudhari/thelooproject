@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150418204232) do
+ActiveRecord::Schema.define(version: 20150418215519) do
 
   create_table "loos", force: :cascade do |t|
     t.string   "lat"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20150418204232) do
     t.string   "closing_hours"
     t.text     "open_closing_note"
     t.string   "managed_by"
-    t.string   "type"
     t.string   "genders"
     t.integer  "no_of_toilets"
     t.integer  "no_of_bathrooms"
@@ -30,6 +29,8 @@ ActiveRecord::Schema.define(version: 20150418204232) do
     t.boolean  "paid"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "location_name"
+    t.string   "loo_type"
   end
 
 end

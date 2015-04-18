@@ -10,29 +10,14 @@
       <h2><%= @loo.name %></h2>
       <h4><%= @loo.location_name %></h4>
       <%= simple_format @loo.description %>
-      <ul>
-        <%= content_tag :li, "Loo Type: #{display_loo_type(@loo.loo_type)}" unless @loo.loo_type.blank? %>
-        <%= content_tag :li, "Gender Type: #{display_gender_type(@loo.genders)}" unless @loo.genders.blank? %>
-        <%= content_tag :li, "No of toilets: #{@loo.no_of_toilets}" unless @loo.no_of_toilets.blank? %>
-        <%= content_tag :li, "No of bathrooms: #{@loo.no_of_bathrooms}" unless @loo.no_of_bathrooms.blank? %>
-        <%= content_tag :li, "No of bathrooms: #{@loo.no_of_urinals}" unless @loo.no_of_urinals.blank? %>
-        <%= content_tag :li, "Open hours: #{@loo.open_hours}" unless @loo.open_hours.blank? %>
-        <%= content_tag :li, "Closing hours: #{@loo.closing_hours}" unless @loo.closing_hours.blank? %>
-        <%= content_tag :li, @loo.open_closing_note unless @loo.open_closing_note.blank? %>
-        <%= content_tag :li, @loo.paid? ? "Paid" : "Free" %>
-      </ul>
-      <br />
-      <% unless @loo.managed_by.blank? %>
-      <p>
-        <strong>Managed by: </strong>
-        <%= content_tag :h4, @loo.managed_by %>
-      </p>
+
+      <%= render :partial => 'loos/summary', locals: { loo: @loo } %>
+
       <br />
       <p>
         <a href="javascript:void(0)" class="show_map" data-loo="<%= @loo.to_json %>"  style="text-decoration: underline;">View map</a>
       </p>
       <div style="width:500px; height: 400px;" id="map_canvas"></div>
-      <% end %>
     </div>
   </div>
 </div>

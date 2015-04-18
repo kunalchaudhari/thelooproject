@@ -6,7 +6,7 @@
         <div class="panel-heading">
           <strong style="font-size: 20px;">Add Loo</strong>
         </div>
-        
+
         <div class="panel-body">
 
           <%= simple_form_for(@loo, defaults: { label: false }) do |f| %>
@@ -17,7 +17,7 @@
               <div class="row">
                 <div class="col-xs-10">
                   <label>Enter location/area of Loo:</label>
-                  <%= f.input :name, placeholder: "Enter new location", input_html: { id: 'location_input' } %>
+                  <%= f.input :location_name, placeholder: "Enter new location", input_html: { id: 'location_input' } %>
                   <span id="helpBlock" class="help-block">eg. Navrangpura, Ahmedabad, India.</span>
                 </div>
               </div>
@@ -36,6 +36,18 @@
                   <%= f.input :name, placeholder: "Name: eg. Toilet at Central mall" %>
                 </div>
               </div>
+
+              <div class="row">
+                <div class="col-xs-8">
+                  <% f.object.attachments.build if f.object.attachments.empty? %>
+                  
+                  <%= f.fields_for :attachments do |attachment_form| %>
+                    <%= attachment_form.file_field :file %>
+                  <% end %>
+                </div>
+              </div>
+
+              <br />
 
               <div class="row">
                 <div class="col-xs-10">
@@ -61,12 +73,12 @@
                   <%= f.input :open_closing_note, placeholder: "Open/Closing note: eg. Closed on saturday and sunday" %>
                 </div>
               </div>
-              
-              
+
+
 
               <br />
               <h4>Other details: </h4>
-              
+
               <div class="row">
                 <div class="col-xs-10">
                   <%= f.input :managed_by, placeholder: "Managed by: eg. NASA Foundation" %>

@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150418215519) do
+ActiveRecord::Schema.define(version: 20150418222555) do
+
+  create_table "attachments", force: :cascade do |t|
+    t.string   "caption"
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+  end
+
+  add_index "attachments", ["attachable_id", "attachable_type"], name: "index_attachments_on_attachable_id_and_attachable_type"
 
   create_table "loos", force: :cascade do |t|
     t.string   "lat"

@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150418195805) do
+ActiveRecord::Schema.define(version: 20150418204232) do
 
-  create_table "toilets", force: :cascade do |t|
+  create_table "loos", force: :cascade do |t|
     t.string   "lat"
     t.string   "lng"
     t.string   "name"

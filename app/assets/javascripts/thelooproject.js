@@ -11,7 +11,7 @@ function initiate_geolocation() {
 
 function handle_geolocation_query(position){
   if($('#location_section').length) {
-    $('#toilet_lat').val(position.coords.latitude);
-    $('#toilet_lng').val(position.coords.longitude);
+    $('#loo_lat').val(position.coords.latitude);
+    $('#loo_lng').val(position.coords.longitude);
   }
 }

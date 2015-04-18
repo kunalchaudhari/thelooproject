@@ -1,6 +1,6 @@
-class CreateToilets < ActiveRecord::Migration
+class CreateLoos < ActiveRecord::Migration
   def change
-    create_table :toilets do |t|
+    create_table :loos do |t|
       t.string :lat
       t.string :lng
       t.string :name

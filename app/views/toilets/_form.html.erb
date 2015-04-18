@@ -1,21 +1,18 @@
 <%= simple_form_for(@toilet) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div id="location_section" class="form-inputs">
 
-    <fieldset id="location_section" style="padding: 20px; border: solid 1px #ccc;">
+    <fieldset style="padding: 20px; border: solid 1px #ccc;">
       <input type="text" id="location_input" />
-      Latitude:   <input name="lat" type="text" value="">
-      Longitude:  <input name="lng" type="text" value="">
-      Address:    <input name="formatted_address" type="text" value="">
     </fieldset>
 
     <br />
     <br />
     <br />
     
-    <%= f.input :lat %>
-    <%= f.input :lng %>
+    <%= f.input :lat, input_html: { data: { geo: 'lat' } } %>
+    <%= f.input :lng, input_html: { data: { geo: 'lng' } } %>
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :open_hours %>

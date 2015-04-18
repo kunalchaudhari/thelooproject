@@ -1,5 +1,6 @@
 $(document).ready(function(){
   $("#location_input").geocomplete({ 
-    details: "#location_section"
+    details: "#location_section",
+    detailsAttribute: "data-geo"
   });
 });

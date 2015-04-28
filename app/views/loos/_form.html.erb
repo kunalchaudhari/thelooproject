@@ -34,14 +34,22 @@
             <h3>Details:</h3>
 
             <div class="row">
-              <div class="col-xs-11">
-                <%= f.input :name, placeholder: "Name: eg. Toilet at Central mall" %>
+              <div class="col-xs-8">
+                <%= f.association :category, prompt: "Select Category" %>
               </div>
             </div>
 
             <div class="row">
               <div class="col-xs-8">
                 <%= f.file_field :photo %>
+              </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+              <div class="col-xs-11">
+                <%= f.input :name, placeholder: "Name: eg. Toilet at Central mall" %>
               </div>
             </div>
 
@@ -113,7 +121,7 @@
           </div>
         <% end %>
       </div>
-      
+
     </div>
   </div>
 </div>

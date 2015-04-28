@@ -18,10 +18,15 @@
 
           <br />
 
-          <h2>Get Started!</h2>
-          <p class="lead">
-            <a href="<%= new_user_session_path %>" style="text-decoration: underline;" >Sign in</a> or <a href="<%= new_user_registration_path %>" style="text-decoration: underline;" >Create an account</a> to share informations regarding loos.</p>
-
+          <% if user_signed_in? %>
+          <p class="lead text-center">
+            <a href="<%= new_loo_path %>" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-plus"></span> Share Loo location & info.</a>
+          </p>
+          <% else %>
+            <h2>Get Started!</h2>
+            <p class="lead">
+              <a href="<%= new_user_session_path %>" style="text-decoration: underline;" >Sign in</a> or <a href="<%= new_user_registration_path %>" style="text-decoration: underline;" >Create an account</a> to share informations regarding loos.</p>
+          <% end %>
         </div> <!-- panel-body -->
 
       </div> <!-- panel -->

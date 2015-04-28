@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428124129) do
+ActiveRecord::Schema.define(version: 20150428132350) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "caption"
@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(version: 20150428124129) do
   end
 
   add_index "attachments", ["attachable_id", "attachable_type"], name: "index_attachments_on_attachable_id_and_attachable_type"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "loos", force: :cascade do |t|
     t.string   "lat"
@@ -55,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150428124129) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "category_id"
   end
 
   create_table "users", force: :cascade do |t|

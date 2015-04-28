@@ -82,6 +82,6 @@ class LoosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def loo_params
-      params.require(:loo).permit(:lat, :lng, :name, :description, :open_hours, :closing_hours, :open_closing_note, :managed_by, :loo_type, :genders, :no_of_toilets, :no_of_bathrooms, :no_of_urinals, :paid, :location_name, :photo, :postal_code, :country, :locality, :administrative_area_level_1, :formatted_address, attachments_attributes: [:file])
+      params.require(:loo).permit(:lat, :lng, :name, :description, :open_hours, :closing_hours, :open_closing_note, :managed_by, :loo_type, :genders, :no_of_toilets, :no_of_bathrooms, :no_of_urinals, :paid, :location_name, :photo, :postal_code, :country, :locality, :administrative_area_level_1, :formatted_address, :category_id, attachments_attributes: [:file])
     end
 end

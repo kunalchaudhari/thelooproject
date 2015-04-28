@@ -1,5 +1,5 @@
 $(document).on('ready page:load', function() {
-  $("#location_input").geocomplete({
+  $(".location_input").geocomplete({
     details: "#location_section",
     detailsAttribute: "data-geo"
   });

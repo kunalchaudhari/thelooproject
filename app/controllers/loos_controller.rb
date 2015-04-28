@@ -1,14 +1,21 @@
 class LoosController < ApplicationController
   before_action :set_loo, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
 
   # GET /loos
   # GET /loos.json
   def index
+    @title = "Listing loos | TheLooProject"
     @loos = Loo.all
   end
 
   def search
-    @loos = Loo.search(params[:term])
+    if params[:q] || params[:loo]
+      @loos = Loo.search(params[:q], params[:loo])
+    else
+      @loos = []
+    end
+    @title = params[:q] + " | TheLooProject"
     render :index
   end
 
@@ -19,6 +26,7 @@ class LoosController < ApplicationController
 
   # GET /loos/new
   def new
+    @title = "Share loo location & Infor | TheLooProject"
     @loo = Loo.new
   end
 
@@ -74,6 +82,6 @@ class LoosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def loo_params
-      params.require(:loo).permit(:lat, :lng, :name, :description, :open_hours, :closing_hours, :open_closing_note, :managed_by, :loo_type, :genders, :no_of_toilets, :no_of_bathrooms, :no_of_urinals, :paid, :location_name, attachments_attributes: [:file])
+      params.require(:loo).permit(:lat, :lng, :name, :description, :open_hours, :closing_hours, :open_closing_note, :managed_by, :loo_type, :genders, :no_of_toilets, :no_of_bathrooms, :no_of_urinals, :paid, :location_name, :photo, :postal_code, :country, :locality, :administrative_area_level_1, :formatted_address, attachments_attributes: [:file])
     end
 end

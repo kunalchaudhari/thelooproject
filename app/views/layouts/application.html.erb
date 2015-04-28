@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Thelooproject</title>
+  <title><%= title %></title>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
@@ -9,10 +9,6 @@
   <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
 
   <%= csrf_meta_tags %>
 </head>
@@ -22,6 +18,14 @@
 
   <%= yield %>
 
+
+  <footer class="text-center text-muted" style="margin-top: 30px;">
+    <ul class="list-inline">
+      <li>
+        &copy; TheLooProject 2015.
+      </li>
+    </ul>
+  </footer>
 
 </body>
 </html>

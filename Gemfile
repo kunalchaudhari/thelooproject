@@ -46,3 +46,7 @@ end
 gem 'simple_form'
 
 gem "paperclip", "~> 4.2"
+
+gem "devise"
+
+gem 'country_select'

@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.geocomplete
+//= require bootstrap.min
 //= require_tree .

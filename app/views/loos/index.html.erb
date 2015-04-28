@@ -1,18 +1,31 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-10 center-block" style="float: none;">
+      
+      <% if params[:q] %>
+        <div class="well">
+          <br />
+          <%= render 'shared/search_form' %>
+        </div>
+      <% end %>
 
       <% unless @loos.empty? %>
 
-      <h1>Listing Loos(<%= @loos.size %>)</h1>
+      <% if params[:q] %>
+        <h3>Search result (<%= @loos.size %>)</h3>
+      <% else %>
+        <h1>Listing Loos(<%= @loos.size %>)</h1>
+      <% end %>
       
         <% @loos.each do |loo| %>      
         <hr />
         <div class="row">
           <div class="col-md-4">
             <a href="<%= loo_path(loo) %>">
-              <%= image_tag loo.attachments.first.file.url(:medium), class: "img-thumbnail" %>
+              <%= image_tag loo.photo.url(:medium), class: "img-thumbnail" %>
             </a>
+            <hr />
+            <%= render :partial => 'loos/actions', locals: { loo: loo } %>
           </div>
           <div class="col-md-7">
             <h3 class="media-heading"><%= link_to loo.name, loo_path(loo) %></h3>
@@ -22,11 +35,9 @@
         </div>
         <% end %>
       <% else %>
-      <div class="panel panel-default">
-        <div class="panel-body">
-          No loos found.
+        <div class="alert alert-warning">
+          <strong>No loos found.</strong>
         </div>
-      </div>
       <% end %>
 
     </div>

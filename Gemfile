@@ -50,3 +50,5 @@ gem "paperclip", "~> 4.2"
 gem "devise"
 
 gem 'country_select'
+
+gem 'rails_admin'
